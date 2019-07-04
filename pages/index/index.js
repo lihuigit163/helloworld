@@ -11,9 +11,26 @@ Page({
   },
   //事件处理函数
   bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+    wx.getSetting({
+      success(res){
+        if (!res.authSetting['scope.userLocation']){
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success(){
+              wx.getLocation({
+                success: function(res) {
+                  console.log(res)
+                  wx.navigateTo({
+                    url: '../logs/logs'
+                  })
+                },
+              })
+            }
+          })
+        }
+      }
     })
+    
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
