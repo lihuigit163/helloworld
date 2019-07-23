@@ -1,14 +1,30 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text>{{userInfo.province}}</text>
-  </view>
+
+<view scroll-y="true" >
+<view>
+  <button type='default' bindtap='bindViewTap' >查看日志</button>
 </view>
+    <swiper class="banner" indicator-dots="true" circular="true"
+     autoplay="true" interval="3000">
+        <swiper-item wx:for="{{banners}}">
+            <image src="{{item}}" mode="aspectFill" ></image>
+        </swiper-item>
+    </swiper>
+    <!-- <view class="picker">
+        <picker range="{{citys}}">
+            <view>请选择</view>
+        </picker>
+    </view> -->
+    <view>
+        <wux-popover placement="bottomLeft" theme="dark" mask="true">
+            <button size="mini" style="">上海虹桥机场</button>
+            <view slot="title" style="font-zise:10rpx;padding:5px 0 0 10px;">请选择机场</view>
+            <view slot="content" style="padding:3px" >
+                <view class="pop-item">上海浦东机场T1</view>
+                <view class="pop-item">上海浦东机场T2</view>
+            </view>
+        </wux-popover>
+    </view>
+</view>
+
 
