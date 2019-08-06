@@ -25,6 +25,9 @@
             </view>
         </wux-popover>
     </view>
+    <view>
+        <carplate-keyboard></carplate-keyboard>
+    </view>
 </view>
 
 

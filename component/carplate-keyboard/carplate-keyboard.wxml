@@ -1,0 +1,10 @@
+<view class="ipt-container">
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text id="ipt-newpower">新能源</text>
+</view>
